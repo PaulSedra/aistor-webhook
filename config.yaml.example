@@ -1,0 +1,15 @@
+# Example runtime configuration for the AIStor webhook service.
+# Copy this file to config.yaml and replace the placeholder values.
+webhook:
+  token: shared-webhook-token
+
+integrations:
+  airflow:
+    base_url: https://airflow.example.com
+    username: airflow-user
+    password: airflow-password
+    # Optional. Omit this field or leave it empty to disable Airflow DAG routing.
+    routes:
+      - bucket: example-bucket
+        prefix: incoming/
+        dag_id: process_aistor_event
